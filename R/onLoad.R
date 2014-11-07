@@ -1,6 +1,6 @@
 # Copyright 2010,2014 Bank Of Italy
 #
-# Licensed under the EUPL, Version 1.1 or – as soon they
+# Licensed under the EUPL, Version 1.1 or - as soon they
 # will be approved by the European Commission - subsequent
 # versions of the EUPL (the "Licence");
 # You may not use this work except in compliance with the
@@ -19,5 +19,11 @@
 # permissions and limitations under the Licence.
 #
 .onLoad <- function(libname, pkgname) {
+	conf = Sys.getenv("SDMX_CONF")
+	if (is.null(conf) || conf=="") {
+		conf =file.path(find.package("RJSDMX"), "inst", "configuration.properties")
+		Sys.setenv(SDMX_CONF=conf)
+	}
+	#packageStartupMessage(paste('Connector configuration:', conf))
 	.jpackage(pkgname, lib.loc = libname)
 }
