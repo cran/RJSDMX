@@ -87,7 +87,7 @@ getDSDIdentifier <- function(provider, dataflow) {
 #' \dontrun{
 #' addProvider('pname', 'pendpoint', F)
 #' }
-addProvider <- function(name, endpoint, needsCredentials=F, needsURLEncoding=F, supportsCompression=T, description='') {
+addProvider <- function(name, endpoint, needsCredentials=FALSE, needsURLEncoding=FALSE, supportsCompression=TRUE, description='') {
   J("it.bancaditalia.oss.sdmx.client.SdmxClientHandler")$addProvider(name, endpoint, needsCredentials, needsURLEncoding, supportsCompression, description)
 }
 
@@ -136,6 +136,33 @@ getTimeSeries <- function(provider, id, start='', end='') {
   getSDMX(provider, id, start, end)
 }
 
+#' get time series and return a data.frame
+#'
+#' Extract a list of time series identified by the parameters provided in input, and return a data.frame as result.
+#' getTimeSeriesTable(provider, dataflow, start, end)
+#'
+#' @param id identifier of the time series
+#' @param provider the name of the provider
+#' @param end the end time - optional
+#' @param start the start time - optional
+#' @rdname getTimeSeriesTable
+#' @export
+#' @examples
+#' \dontrun{
+#' ## get single time series: EXR.A.USD.EUR.SP00.A (alternatively: EXR/A+M.USD.EUR.SP00.A)
+#' my_df=getTimeSeriesTable('ECB','EXR.A.USD.EUR.SP00.A')
+#' ## get monthly and annual frequency: 'EXR.A|M.USD.EUR.SP00.A' (alternatively: EXR/A+M.USD.EUR.SP00.A)
+#' my_df=getTimeSeriesTable('ECB','EXR.A|M.USD.EUR.SP00.A')
+#' ## get all available frequencies: 'EXR.*.USD.EUR.SP00.A' (alternatively: EXR/.USD.EUR.SP00.A)
+#' my_df=getTimeSeriesTable('ECB','EXR.*.USD.EUR.SP00.A')
+#' }
+getTimeSeriesTable <- function(provider, id, start='', end='') {
+  res <- J("it.bancaditalia.oss.sdmx.client.SdmxClientHandler")$getTimeSeriesTable(provider, id, start, end)
+  #convert to an R data.frame
+  res = convertTSDF(res)
+  return(res)
+}
+
 #' get data revisions
 #'
 #' Extract a list of time series starting from a specific update time and 
@@ -158,13 +185,13 @@ getTimeSeries <- function(provider, id, start='', end='') {
 #' @examples
 #' \dontrun{
 #' # get single time series with history: 
-#' my_ts=getTimeSeriesRevisions('ECB','EXR.A.USD.EUR.SP00.A', includeHistory=T)
+#' my_ts=getTimeSeriesRevisions('ECB','EXR.A.USD.EUR.SP00.A', includeHistory=TRUE)
 #' # get single time series (only observations updated after january 1st 2015): 
 #' my_ts=getTimeSeriesRevisions('ECB','EXR.A.USD.EUR.SP00.A', updatedAfter='2015', includeHistory=F)
 #' # get single time series (full revision history starting from january 1st 2015): 
-#' my_ts=getTimeSeriesRevisions('ECB','EXR.A.USD.EUR.SP00.A', updatedAfter='2015', includeHistory=T)
+#' my_ts=getTimeSeriesRevisions('ECB','EXR.A.USD.EUR.SP00.A', updatedAfter='2015', includeHistory=TRUE)
 #' }
-getTimeSeriesRevisions <- function(provider, id, start='', end='', updatedAfter='', includeHistory=T) {
+getTimeSeriesRevisions <- function(provider, id, start='', end='', updatedAfter='', includeHistory=TRUE) {
   res <- J("it.bancaditalia.oss.sdmx.client.SdmxClientHandler")$getTimeSeriesRevisions(provider, id, start, end, updatedAfter, includeHistory)
   #convert to an R list
   res = convertTSList(res)
@@ -264,7 +291,7 @@ sdmxHelp <- function(internalJVM=T){
     if(length(JAVA) > 0 && nchar(JAVA[1]) > 0){
       javaExe = JAVA[1]
       message(paste0('JVM detected: ', javaExe))
-      system(paste0(javaExe, ' -classpath ', file.path(find.package('RJSDMX'), 'java', 'SDMX.jar'), ' it.bancaditalia.oss.sdmx.helper.SDMXHelper'), wait=F)
+      system(paste0(javaExe, ' -classpath ', file.path(find.package('RJSDMX'), 'java', 'SDMX.jar'), ' it.bancaditalia.oss.sdmx.helper.SDMXHelper'), wait=FALSE)
     }
     else{
       stop('Could not detect external JVM.')
@@ -291,7 +318,7 @@ sdmxHelp <- function(internalJVM=T){
 #' ddf = sdmxdf(a)
 #' ddf = sdmxdf(a, meta=T)
 #' }
-sdmxdf <- function(tslist, meta=F, id=T){
+sdmxdf <- function(tslist, meta=FALSE, id=TRUE){
   ddf = NULL
   if(!missing(tslist) && length(tslist) != 0 && is.list(tslist)){
     dflist=lapply(tslist, sdmxzoo2df, id, meta)
