@@ -1,5 +1,5 @@
 Package: RJSDMX
-Version: 1.6-1
+Version: 1.6-2
 Title: R Interface to SDMX Web Services
 Author: Attilio Mattiocco, Diana Nicoletti, Gianpaolo Lopez, Banca d'Italia
 Maintainer: Attilio Mattiocco <attilio.mattiocco@bancaditalia.it>
@@ -16,7 +16,7 @@ License: EUPL
 URL: https://github.com/amattioc/SDMX/
 BugReports: https://github.com/amattioc/SDMX/issues
 Copyright: Banca d'Italia
-Packaged: 2016-04-07 07:37:52 UTC; pkgadm
+Packaged: 2016-05-20 14:56:58 UTC; pkgadm
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2016-04-07 14:06:03
+Date/Publication: 2016-05-24 12:34:22
