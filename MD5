@@ -1,4 +1,4 @@
-121d16364d4ce4e0b5417884fa35ac86 *DESCRIPTION
+cc79a8296d1005f29c808636ccfeaa20 *DESCRIPTION
 81d54b94a3639f17e27eaf43394b30c4 *NAMESPACE
 258a80809a58614ae52b7a8ae072eca7 *R/SdmxClient.R
 85a6cb9370c0c10b7985c5998b497813 *R/TSConverter.R
@@ -10,7 +10,7 @@
 59b5f3077ee1f640d1155e02983b39cc *inst/configuration.properties
 94e6287c7637891d5cb13e66289d5286 *inst/java/SDMX.jar
 79a0606e2a690c4f2d6eeb9dce6a4e12 *java/source_code.txt
-8a52c999cffa703d737e64196424c53b *man/RJSDMX-package.Rd
+d486a3182208f7b42bbaf68f31f5029e *man/RJSDMX-package.Rd
 08ad650dbb09a89c29d2b33a38ff468d *man/addLocalProvider.Rd
 056db9b09c38b899aa76e6eafc4aaf72 *man/addProvider.Rd
 0636699226715f0adfd8f128ad4b237a *man/getCodes.Rd
