@@ -1,6 +1,6 @@
-19cfb2d18492ffbdb6035866d1e6ce0b *DESCRIPTION
-cb4a613fe3ce6810ba09ad522a45f984 *NAMESPACE
-2c8063d3406bb7c17912e8aedb26fe6f *R/SdmxClient.R
+b5b1b7e4a783a3da0ce57ca1b479a37a *DESCRIPTION
+f8d12a42ca62f05800650b7aef94e664 *NAMESPACE
+70676295dbc90f554375578f7929de90 *R/SdmxClient.R
 7a5d1b09e8e32d36d64f0302fd244c05 *R/TSConverter.R
 7d4a586086d2b10c652d3033540b712c *R/onLoad.R
 cbc98286435c0bdddc6a586bb5d3e426 *R/test_automation/test.sdmx.r
@@ -8,7 +8,7 @@ cbc98286435c0bdddc6a586bb5d3e426 *R/test_automation/test.sdmx.r
 14655188dfdd14b1dbe662dcfd392de1 *demo/RJSDMX.R
 31de38780168403d46a720de99196f81 *inst/Licence.pdf
 59b5f3077ee1f640d1155e02983b39cc *inst/configuration.properties
-dd804bf3505c3019ff4eb5bdf95212d7 *inst/java/SDMX.jar
+296da8db9d701892fb9217e47a26cdad *inst/java/SDMX.jar
 79a0606e2a690c4f2d6eeb9dce6a4e12 *java/source_code.txt
 c2a8c10e3ff3357408045c7818cd39fd *man/RJSDMX-package.Rd
 adf6081fc146770d3313dcb8b15d506a *man/addProvider.Rd
@@ -24,3 +24,4 @@ f76d58144b194f68f31446b59c12c0ff *man/getTimeSeries2.Rd
 d203de2b8ec1598a1a9f74c9a6441f1c *man/getTimeSeriesTable2.Rd
 7ba0e20211f5e36434bf7acc6e8102e4 *man/sdmxHelp.Rd
 1cccb430c3d7893bea903e0695cdee9b *man/sdmxdf.Rd
+8afd0b2c93ed7e0575b4f76701c6aa80 *man/setProviderCredentials.Rd
