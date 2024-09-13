@@ -1,4 +1,4 @@
-b5b1b7e4a783a3da0ce57ca1b479a37a *DESCRIPTION
+163a8dd75a4b769f55df51fb215d8cc7 *DESCRIPTION
 f8d12a42ca62f05800650b7aef94e664 *NAMESPACE
 70676295dbc90f554375578f7929de90 *R/SdmxClient.R
 7a5d1b09e8e32d36d64f0302fd244c05 *R/TSConverter.R
@@ -8,9 +8,9 @@ cbc98286435c0bdddc6a586bb5d3e426 *R/test_automation/test.sdmx.r
 14655188dfdd14b1dbe662dcfd392de1 *demo/RJSDMX.R
 31de38780168403d46a720de99196f81 *inst/Licence.pdf
 59b5f3077ee1f640d1155e02983b39cc *inst/configuration.properties
-296da8db9d701892fb9217e47a26cdad *inst/java/SDMX.jar
+414e4d3b3f94347b4902f18f485b38b2 *inst/java/SDMX.jar
 79a0606e2a690c4f2d6eeb9dce6a4e12 *java/source_code.txt
-c2a8c10e3ff3357408045c7818cd39fd *man/RJSDMX-package.Rd
+2011ffa6edecfe5c79d154fe519bb4db *man/RJSDMX-package.Rd
 adf6081fc146770d3313dcb8b15d506a *man/addProvider.Rd
 0636699226715f0adfd8f128ad4b237a *man/getCodes.Rd
 d93ec7190e11d30cf202d89a8bdccdb6 *man/getDSDIdentifier.Rd
